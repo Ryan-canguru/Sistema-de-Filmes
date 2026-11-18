@@ -1,99 +1,138 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+
 namespace SistemaCadastro
 {
     internal class ConectaBanco
     {
-        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;password=Batista@2006;database=banco_bandas");
+        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;password=Batista@2006;database=bancos_filmes");
+
         string mensagem;
 
-        public bool insereBanda(Banda novaBanda)
+        public string Mensagem
+        {
+            get => mensagem;
+        }
+
+        public bool insereFilme(Filmes novoFilme)
         {
             try
             {
                 conexao.Open();
+
                 MySqlCommand cmd =
-                    new MySqlCommand("sp_insereBanda", conexao);
+                    new MySqlCommand("sp_insereFilme", conexao);
+
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("nome", novaBanda.Nome);
-                cmd.Parameters.AddWithValue("integrantes", novaBanda.Integrantes);
-                cmd.Parameters.AddWithValue("ranking", novaBanda.Ranking);
-                cmd.Parameters.AddWithValue("genero", novaBanda.Genero);
+
+                cmd.Parameters.AddWithValue("nome", novoFilme.Nome);
+                cmd.Parameters.AddWithValue("genero",
+                    Convert.ToInt32(novoFilme.Genero));
+                cmd.Parameters.AddWithValue("diretor", novoFilme.Diretor);
+                cmd.Parameters.AddWithValue("ano",
+                    Convert.ToInt32(novoFilme.Ano));
+
                 cmd.ExecuteNonQuery();
+
                 return true;
             }
-            catch (MySqlException erro)
+            catch (Exception erro)
             {
                 mensagem = erro.Message;
                 return false;
             }
-
+            finally
+            {
+                conexao.Close();
+            }
         }
+
         public DataTable listaGeneros()
         {
-            MySqlCommand cmd = new MySqlCommand("sp_listaGeneros", conexao);
+            MySqlCommand cmd =
+                new MySqlCommand("sp_listaGeneros", conexao);
+
             cmd.CommandType = CommandType.StoredProcedure;
+
             try
             {
                 conexao.Open();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataAdapter da =
+                    new MySqlDataAdapter(cmd);
+
                 DataTable tabela = new DataTable();
                 da.Fill(tabela);
+
                 return tabela;
-            }// fim try
+            }
             catch (MySqlException e)
             {
-                mensagem = "Erro:" + e.Message;
+                mensagem = "Erro: " + e.Message;
                 return null;
             }
             finally
             {
                 conexao.Close();
             }
-
         }
-        public DataTable listaBandas()
+
+        public DataTable listaFilmes()
         {
-            MySqlCommand cmd = new MySqlCommand("sp_listaBandas", conexao);
+            MySqlCommand cmd =
+                new MySqlCommand("sp_listaFilmes", conexao);
+
             cmd.CommandType = CommandType.StoredProcedure;
+
             try
             {
                 conexao.Open();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                MySqlDataAdapter da =
+                    new MySqlDataAdapter(cmd);
+
                 DataTable tabela = new DataTable();
                 da.Fill(tabela);
+
                 return tabela;
-            }// fim try
+            }
             catch (MySqlException e)
             {
-                mensagem = "Erro:" + e.Message;
+                mensagem = "Erro: " + e.Message;
                 return null;
             }
             finally
             {
                 conexao.Close();
             }
-
         }
-        public bool deletaBanda(int idRemovebanda)
+
+        public bool deletaFilme(int idRemoveFilme)
         {
-            MySqlCommand cmd = new MySqlCommand("sp_removeBanda", conexao);
+            MySqlCommand cmd =
+                new MySqlCommand("sp_removeFilme", conexao);
+
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("idbanda", idRemovebanda);
+
+            cmd.Parameters.AddWithValue("idfilme", idRemoveFilme);
+
             try
             {
                 conexao.Open();
-                cmd.ExecuteNonQuery(); // executa o comando
+
+                cmd.ExecuteNonQuery();
+
                 return true;
             }
             catch (MySqlException e)
             {
-                mensagem = "Erro:" + e.Message;
+                mensagem = "Erro: " + e.Message;
                 return false;
             }
             finally
@@ -101,7 +140,36 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
+        public bool alteraFilme(Filmes filmeAlterado, int idFilme)
+        {
+            MySqlCommand cmd =
+                new MySqlCommand("sp_alteraFilme", conexao);
 
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("idfilme", idFilme);
+            cmd.Parameters.AddWithValue("nome", filmeAlterado.Nome);
+            cmd.Parameters.AddWithValue("genero",
+                Convert.ToInt32(filmeAlterado.Genero));
+            cmd.Parameters.AddWithValue("diretor", filmeAlterado.Diretor);
+            cmd.Parameters.AddWithValue("ano",
+                Convert.ToInt32(filmeAlterado.Ano));
+
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                mensagem = "Erro: " + e.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
     }
 }

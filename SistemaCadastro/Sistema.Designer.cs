@@ -306,9 +306,9 @@
             this.label3.Location = new System.Drawing.Point(16, 112);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 23);
+            this.label3.Size = new System.Drawing.Size(78, 23);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Duração:";
+            this.label3.Text = "Diretor:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
@@ -452,6 +452,7 @@
             this.cbAlteraGenero.Name = "cbAlteraGenero";
             this.cbAlteraGenero.Size = new System.Drawing.Size(639, 36);
             this.cbAlteraGenero.TabIndex = 23;
+            this.cbAlteraGenero.SelectedIndexChanged += new System.EventHandler(this.cbAlteraGenero_SelectedIndexChanged);
             // 
             // txtAlteraRanking
             // 
@@ -460,6 +461,7 @@
             this.txtAlteraRanking.Name = "txtAlteraRanking";
             this.txtAlteraRanking.Size = new System.Drawing.Size(639, 32);
             this.txtAlteraRanking.TabIndex = 20;
+            this.txtAlteraRanking.TextChanged += new System.EventHandler(this.txtAlteraRanking_TextChanged);
             // 
             // label7
             // 
@@ -468,9 +470,9 @@
             this.label7.ForeColor = System.Drawing.Color.Gray;
             this.label7.Location = new System.Drawing.Point(10, 183);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 23);
+            this.label7.Size = new System.Drawing.Size(55, 23);
             this.label7.TabIndex = 21;
-            this.label7.Text = "Nota:";
+            this.label7.Text = "Ano:";
             // 
             // txtAlteraIntegrantes
             // 
@@ -480,6 +482,7 @@
             this.txtAlteraIntegrantes.Name = "txtAlteraIntegrantes";
             this.txtAlteraIntegrantes.Size = new System.Drawing.Size(639, 32);
             this.txtAlteraIntegrantes.TabIndex = 19;
+            this.txtAlteraIntegrantes.TextChanged += new System.EventHandler(this.txtAlteraIntegrantes_TextChanged);
             // 
             // txtAlteraNome
             // 
@@ -489,6 +492,7 @@
             this.txtAlteraNome.Name = "txtAlteraNome";
             this.txtAlteraNome.Size = new System.Drawing.Size(639, 34);
             this.txtAlteraNome.TabIndex = 17;
+            this.txtAlteraNome.TextChanged += new System.EventHandler(this.txtAlteraNome_TextChanged);
             // 
             // label8
             // 
@@ -498,9 +502,10 @@
             this.label8.Location = new System.Drawing.Point(10, 128);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 23);
+            this.label8.Size = new System.Drawing.Size(78, 23);
             this.label8.TabIndex = 16;
-            this.label8.Text = "Duração:";
+            this.label8.Text = "Diretor:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
