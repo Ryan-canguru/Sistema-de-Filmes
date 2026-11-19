@@ -171,5 +171,72 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
+
+
+        public bool insereGenero(string novoGenero)
+        {
+            MySqlCommand cmd =
+                new MySqlCommand("sp_insereGenero", conexao);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("genero", novoGenero);
+
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                mensagem = "Erro: " + e.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+
+        public bool verifica(string user, string pass)
+        {
+            string senhaHash = Bibliotecacs.makeHash(pass);
+
+            MySqlCommand cmd = new MySqlCommand(
+                "sp_consultarUsuario", conexao);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("usuario", user);
+            cmd.Parameters.AddWithValue("senha", senhaHash);
+
+            try
+            {
+                conexao.Open();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (MySqlException e)
+            {
+                mensagem = "Erro: " + e.Message;
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+
+
     }
 }
