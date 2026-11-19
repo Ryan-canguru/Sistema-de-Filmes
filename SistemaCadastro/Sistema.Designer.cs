@@ -31,20 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sistema));
             this.panel1 = new System.Windows.Forms.Panel();
             this.marcador = new System.Windows.Forms.Panel();
+            this.btnBusca = new System.Windows.Forms.Button();
             this.btnCadastra = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCadastrar = new System.Windows.Forms.TabPage();
+            this.bntAddGenero = new System.Windows.Forms.Button();
             this.cbGenero = new System.Windows.Forms.ComboBox();
             this.txtranking = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
             this.txtintegrantes = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabBuscar = new System.Windows.Forms.TabPage();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnRemoveBanda = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.dgBandas = new System.Windows.Forms.DataGridView();
@@ -57,15 +63,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnConfirmaAlteracao = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.bntAddGenero = new System.Windows.Forms.Button();
-            this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnRemoveBanda = new System.Windows.Forms.Button();
-            this.btnConfirmaAlteracao = new System.Windows.Forms.Button();
-            this.btnBusca = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -97,6 +97,24 @@
             this.marcador.Size = new System.Drawing.Size(13, 44);
             this.marcador.TabIndex = 8;
             // 
+            // btnBusca
+            // 
+            this.btnBusca.FlatAppearance.BorderSize = 0;
+            this.btnBusca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBusca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBusca.ForeColor = System.Drawing.Color.White;
+            this.btnBusca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBusca.Location = new System.Drawing.Point(22, 157);
+            this.btnBusca.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(175, 60);
+            this.btnBusca.TabIndex = 5;
+            this.btnBusca.Text = "&Buscar";
+            this.btnBusca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBusca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
+            // 
             // btnCadastra
             // 
             this.btnCadastra.FlatAppearance.BorderSize = 0;
@@ -120,12 +138,25 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Location = new System.Drawing.Point(205, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(898, 185);
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial Narrow", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(298, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(334, 52);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Sistema de Filmes";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label1
             // 
@@ -173,6 +204,24 @@
             this.tabCadastrar.TabIndex = 0;
             this.tabCadastrar.Text = "Cadastrar";
             // 
+            // bntAddGenero
+            // 
+            this.bntAddGenero.FlatAppearance.BorderSize = 0;
+            this.bntAddGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntAddGenero.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.bntAddGenero.ForeColor = System.Drawing.Color.DimGray;
+            this.bntAddGenero.Image = global::SistemaCadastro.Properties.Resources.botao_adicionar__1_;
+            this.bntAddGenero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntAddGenero.Location = new System.Drawing.Point(822, 62);
+            this.bntAddGenero.Margin = new System.Windows.Forms.Padding(4);
+            this.bntAddGenero.Name = "bntAddGenero";
+            this.bntAddGenero.Size = new System.Drawing.Size(57, 43);
+            this.bntAddGenero.TabIndex = 15;
+            this.bntAddGenero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bntAddGenero.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bntAddGenero.UseVisualStyleBackColor = true;
+            this.bntAddGenero.Click += new System.EventHandler(this.bntAddGenero_Click);
+            // 
             // cbGenero
             // 
             this.cbGenero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -203,6 +252,24 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Nota:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // BtnConfirmaCadastro
+            // 
+            this.BtnConfirmaCadastro.FlatAppearance.BorderSize = 0;
+            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
+            this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
+            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(380, 213);
+            this.BtnConfirmaCadastro.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
+            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(175, 60);
+            this.BtnConfirmaCadastro.TabIndex = 13;
+            this.BtnConfirmaCadastro.Text = "&Cadastrar";
+            this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnConfirmaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnConfirmaCadastro.UseVisualStyleBackColor = true;
+            this.BtnConfirmaCadastro.Click += new System.EventHandler(this.BtnConfirmaCadastro_Click);
             // 
             // txtintegrantes
             // 
@@ -274,6 +341,44 @@
             this.tabBuscar.Size = new System.Drawing.Size(888, 308);
             this.tabBuscar.TabIndex = 1;
             this.tabBuscar.Text = "Buscar";
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.FlatAppearance.BorderSize = 0;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAlterar.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.Location = new System.Drawing.Point(643, 6);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(149, 56);
+            this.btnAlterar.TabIndex = 15;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnRemoveBanda
+            // 
+            this.btnRemoveBanda.FlatAppearance.BorderSize = 0;
+            this.btnRemoveBanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveBanda.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveBanda.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRemoveBanda.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveBanda.Image")));
+            this.btnRemoveBanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveBanda.Location = new System.Drawing.Point(484, 6);
+            this.btnRemoveBanda.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveBanda.Name = "btnRemoveBanda";
+            this.btnRemoveBanda.Size = new System.Drawing.Size(163, 56);
+            this.btnRemoveBanda.TabIndex = 14;
+            this.btnRemoveBanda.Text = "Remover";
+            this.btnRemoveBanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveBanda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRemoveBanda.UseVisualStyleBackColor = true;
+            this.btnRemoveBanda.Click += new System.EventHandler(this.btnRemoveBanda_Click);
             // 
             // label5
             // 
@@ -418,119 +523,6 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Nome:";
             // 
-            // lblMensagem
-            // 
-            this.lblMensagem.AutoSize = true;
-            this.lblMensagem.ForeColor = System.Drawing.Color.Red;
-            this.lblMensagem.Location = new System.Drawing.Point(726, 32);
-            this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(0, 16);
-            this.lblMensagem.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1066, 31);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 41);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "X";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial Narrow", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(314, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(336, 52);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Sistema de Filmes";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // bntAddGenero
-            // 
-            this.bntAddGenero.FlatAppearance.BorderSize = 0;
-            this.bntAddGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntAddGenero.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.bntAddGenero.ForeColor = System.Drawing.Color.DimGray;
-            this.bntAddGenero.Image = global::SistemaCadastro.Properties.Resources.botao_adicionar__1_;
-            this.bntAddGenero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntAddGenero.Location = new System.Drawing.Point(822, 62);
-            this.bntAddGenero.Margin = new System.Windows.Forms.Padding(4);
-            this.bntAddGenero.Name = "bntAddGenero";
-            this.bntAddGenero.Size = new System.Drawing.Size(57, 43);
-            this.bntAddGenero.TabIndex = 15;
-            this.bntAddGenero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntAddGenero.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bntAddGenero.UseVisualStyleBackColor = true;
-            this.bntAddGenero.Click += new System.EventHandler(this.bntAddGenero_Click);
-            // 
-            // BtnConfirmaCadastro
-            // 
-            this.BtnConfirmaCadastro.FlatAppearance.BorderSize = 0;
-            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
-            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(380, 213);
-            this.BtnConfirmaCadastro.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
-            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(175, 60);
-            this.BtnConfirmaCadastro.TabIndex = 13;
-            this.BtnConfirmaCadastro.Text = "&Cadastrar";
-            this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnConfirmaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnConfirmaCadastro.UseVisualStyleBackColor = true;
-            this.BtnConfirmaCadastro.Click += new System.EventHandler(this.BtnConfirmaCadastro_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.FlatAppearance.BorderSize = 0;
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAlterar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.Location = new System.Drawing.Point(643, 6);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(149, 56);
-            this.btnAlterar.TabIndex = 15;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnRemoveBanda
-            // 
-            this.btnRemoveBanda.FlatAppearance.BorderSize = 0;
-            this.btnRemoveBanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveBanda.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveBanda.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemoveBanda.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveBanda.Image")));
-            this.btnRemoveBanda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveBanda.Location = new System.Drawing.Point(484, 6);
-            this.btnRemoveBanda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRemoveBanda.Name = "btnRemoveBanda";
-            this.btnRemoveBanda.Size = new System.Drawing.Size(163, 56);
-            this.btnRemoveBanda.TabIndex = 14;
-            this.btnRemoveBanda.Text = "Remover";
-            this.btnRemoveBanda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveBanda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRemoveBanda.UseVisualStyleBackColor = true;
-            this.btnRemoveBanda.Click += new System.EventHandler(this.btnRemoveBanda_Click);
-            // 
             // btnConfirmaAlteracao
             // 
             this.btnConfirmaAlteracao.FlatAppearance.BorderSize = 0;
@@ -550,23 +542,33 @@
             this.btnConfirmaAlteracao.UseVisualStyleBackColor = true;
             this.btnConfirmaAlteracao.Click += new System.EventHandler(this.btnConfirmaAlteracao_Click);
             // 
-            // btnBusca
+            // lblMensagem
             // 
-            this.btnBusca.FlatAppearance.BorderSize = 0;
-            this.btnBusca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBusca.ForeColor = System.Drawing.Color.White;
-            this.btnBusca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBusca.Location = new System.Drawing.Point(22, 157);
-            this.btnBusca.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBusca.Name = "btnBusca";
-            this.btnBusca.Size = new System.Drawing.Size(175, 60);
-            this.btnBusca.TabIndex = 5;
-            this.btnBusca.Text = "&Buscar";
-            this.btnBusca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBusca.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBusca.UseVisualStyleBackColor = true;
-            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
+            this.lblMensagem.AutoSize = true;
+            this.lblMensagem.ForeColor = System.Drawing.Color.Red;
+            this.lblMensagem.Location = new System.Drawing.Point(726, 32);
+            this.lblMensagem.Name = "lblMensagem";
+            this.lblMensagem.Size = new System.Drawing.Size(0, 16);
+            this.lblMensagem.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(828, 48);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(33, 41);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "X";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Sistema
             // 
@@ -576,7 +578,6 @@
             this.ClientSize = new System.Drawing.Size(1103, 535);
             this.Controls.Add(this.lblMensagem);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
