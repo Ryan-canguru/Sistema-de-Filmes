@@ -1,82 +1,79 @@
-﻿# Sistema de Cadastro de Filmes
+# Sistema de Cadastro de Filmes
 
-O Sistema de Cadastro de Filmes é um aplicativo de desktop para Windows que permite organizar um catálogo de filmes. Depois de entrar com usuário e senha, a pessoa pode cadastrar um filme, consultar os registros existentes, corrigir informações ou excluir um registro. Cada filme tem nome, gênero, diretor e ano. O sistema também possui uma tela para cadastrar novos gêneros e disponibilizá-los na lista de seleção.
+O Sistema de Cadastro de Filmes é um aplicativo de desktop para Windows que permite organizar um catálogo de filmes. Após entrar com usuário e senha, é possível cadastrar filmes, consultar os registros pelo título, alterar informações e remover filmes. O sistema também permite cadastrar novos gêneros para usar no catálogo. Cada filme é registrado com nome, gênero, diretor e ano.
 
 ## Linguagem de programação e tecnologias
 
-| Tecnologia | Como é usada no projeto |
-|---|---|
-| **C#** | É a linguagem de programação principal. Em C# foram escritas as classes, as validações dos campos, as ações dos botões, a navegação entre as janelas e a comunicação com o banco. |
-| **Windows Forms (WinForms)** | É a tecnologia usada para montar a interface gráfica. Fornece formulários, botões, caixas de texto, listas de seleção, abas e a tabela que exibe os filmes. |
-| **.NET Framework 4.7.2** | É a plataforma para a qual o aplicativo foi compilado. Ela fornece as bibliotecas usadas pelo código C# e pelo Windows Forms. |
-| **SQL** | É a linguagem usada para definir as tabelas e escrever as consultas e rotinas que inserem, listam, alteram e excluem dados. |
-| **MySQL** | É o sistema gerenciador do banco de dados. Ele mantém os filmes, os gêneros e os usuários gravados mesmo depois que o aplicativo é fechado. |
-| **MySql.Data** | É o pacote NuGet que permite ao código C# abrir uma conexão com o MySQL, enviar parâmetros para as rotinas SQL e receber os resultados. |
+**C#** é a linguagem de programação principal do projeto. Ela é usada para ler os dados digitados, validar campos, executar as ações dos botões, navegar entre as janelas e solicitar operações ao banco de dados.
 
-A solução pode ser aberta no Visual Studio pelo arquivo `SistemaCadastro.sln`. Nos formulários, os arquivos `.Designer.cs` contêm a criação e a configuração dos componentes visuais. Os arquivos `.cs` correspondentes contêm a lógica executada quando o usuário clica em um botão, digita em um campo ou abre uma tela.
+**Windows Forms (WinForms)** é a tecnologia usada para construir a interface gráfica. Ela fornece os formulários, botões, caixas de texto, listas de seleção, abas e a grade em que os filmes são exibidos. O projeto usa o **.NET Framework 4.7.2**, que fornece o ambiente de execução e as bibliotecas usadas pela aplicação.
+
+**SQL** é a linguagem usada para definir as tabelas e escrever as rotinas de cadastro, consulta, alteração e exclusão. Essas rotinas são executadas no **MySQL**, o gerenciador que armazena os filmes, os gêneros e os usuários. O pacote NuGet **MySql.Data** permite que o programa em C# abra uma conexão com o MySQL, envie parâmetros e receba os resultados.
 
 ## Formulários do sistema
 
-### 1. Login — `FrmLogin`
+### 1. Tela de login — `FrmLogin`
 
-É a primeira janela exibida quando o programa inicia. O usuário preenche os campos de usuário e senha e clica em **Entrar**. Antes da consulta ao banco, o código gera um hash SHA-256 da senha digitada. A classe `ConectaBanco` envia o nome de usuário e esse hash para o procedimento `sp_consultarUsuario`, que procura um registro correspondente no MySQL.
+![Tela de login com os campos de usuário e senha e o botão Entrar](imagens/login.png)
 
-Quando a consulta encontra o usuário, o formulário de login é ocultado e a tela principal é aberta. Se a validação falhar, o aplicativo mostra a mensagem **Usuário ou senha incorretos!**. O botão **X** fecha a janela de login.
+É a primeira janela exibida quando o programa inicia. O usuário informa seu nome de usuário e sua senha e clica em **Entrar**. O aplicativo gera um hash SHA-256 da senha digitada e envia o nome de usuário e o hash ao procedimento `sp_consultarUsuario`, que procura um registro correspondente no banco de dados.
+
+Quando o banco encontra o usuário, o programa abre a tela principal. Se a validação falhar, o sistema exibe a mensagem **Usuário ou senha incorretos!** e permite uma nova tentativa.
 
 ### 2. Tela principal — `Sistema`
 
-É onde o usuário gerencia o catálogo. Quando a janela abre, o programa consulta o MySQL para preencher a lista de gêneros e a tabela de filmes. O formulário é dividido em três abas.
+É a janela que reúne as operações do catálogo. Quando ela é aberta, o programa busca no MySQL os gêneros disponíveis e os filmes cadastrados. As operações são organizadas nas abas **Cadastrar**, **Buscar** e **Alterar**.
 
-#### Cadastrar filme
+#### Aba Cadastrar
 
-O usuário digita o nome do filme e do diretor, seleciona um gênero e informa o ano. Ao clicar em **Cadastrar**, o programa verifica se os nomes foram preenchidos, se um gênero foi selecionado e se o ano pode ser lido como um número inteiro. Se os dados estiverem válidos, o programa executa `sp_insereFilme`. Após a confirmação do cadastro, os campos são limpos e a tabela de filmes é atualizada.
+![Aba Cadastrar com os campos de filme e o botão para adicionar um gênero](imagens/cadastro-filme.png)
 
-Na versão atual, o campo usado para informar o ano aparece com o rótulo **Nota** na aba de cadastro. O valor digitado nesse campo é salvo como **ano do filme**.
+Para registrar um filme, o usuário informa o nome do filme, seleciona um gênero, digita o nome do diretor e preenche o campo do ano. Ao clicar em **Cadastrar**, o programa verifica se o nome e o diretor foram preenchidos, se um gênero foi escolhido e se o ano é um número inteiro. Se o cadastro for concluído, o programa limpa os campos e atualiza a lista de filmes.
 
-#### Buscar e remover filmes
+Na versão mostrada na captura, o campo do ano aparece com o rótulo **Nota**. O valor digitado nesse campo é salvo como **ano do filme**. O botão **+**, ao lado do gênero, abre a janela de cadastro de gêneros.
 
-A aba **Buscar** mostra os registros em uma tabela com nome, gênero, diretor e ano. O campo **Filme** filtra a tabela conforme o usuário digita. Por exemplo, ao digitar `Senhor`, são exibidos os títulos que começam com `Senhor`. Esse filtro é aplicado à lista carregada na tela.
+#### Aba Buscar
 
-Para excluir um filme, o usuário seleciona uma linha e clica em **Remover**. O programa pede confirmação e, se o usuário aceitar, envia ao banco o identificador do registro selecionado. Isso permite excluir o filme correto mesmo quando há títulos iguais. Após uma exclusão bem-sucedida, a tabela é carregada novamente.
+![Aba Buscar com filtro por título, lista de filmes e botões Remover e Alterar](imagens/busca-filmes.png)
 
-#### Alterar filme
+A aba **Buscar** exibe os filmes cadastrados com nome, gênero, diretor e ano. Conforme o usuário digita no campo **Filme**, a tela mostra os títulos que começam com o texto informado. Por exemplo, ao digitar `O Senhor`, a lista exibe títulos com esse início.
 
-O usuário seleciona um filme na aba **Buscar** e clica em **Alterar**. O sistema abre a aba de edição com os dados já preenchidos. É possível mudar o nome, o gênero, o diretor e o ano. Ao clicar em **Confirmar Alteração**, o programa valida os dados e chama `sp_alteraFilme` para atualizar o registro. Se a operação der certo, a tela volta para a aba **Buscar** com a lista atualizada.
+Para excluir um filme, o usuário seleciona o registro e clica em **Remover**. O programa pede confirmação antes de enviar a exclusão ao banco de dados. A operação usa o identificador do filme selecionado para localizar o registro. Depois da exclusão, a lista é carregada novamente.
 
-### 3. Cadastro de gênero — `FrmAddGenero`
+#### Aba Alterar
 
-Essa janela é aberta pelo botão com o ícone de adicionar na aba **Cadastrar**. O usuário informa o nome do novo gênero e clica em **Cadastrar**. O programa verifica se o campo está preenchido, remove espaços em excesso nas extremidades do texto e envia o nome ao MySQL pelo procedimento `sp_insereGenero`.
+![Aba Alterar com os dados do filme selecionado e o botão Confirmar Alteração](imagens/alteracao-filme.png)
 
-Após o cadastro, a janela mostra uma mensagem de sucesso e limpa o campo, permitindo incluir outro gênero. Ao clicar no **X**, o usuário volta à tela principal. A lista de gêneros é consultada novamente, então o gênero recém-cadastrado fica disponível para selecionar em um filme.
+Para editar um filme, o usuário seleciona uma linha na aba **Buscar** e clica em **Alterar**. O sistema abre a aba de edição com os campos preenchidos com os dados do registro. O usuário pode mudar o nome, o gênero, o diretor e o ano.
+
+Ao clicar em **Confirmar Alteração**, o programa valida os valores e atualiza o registro no banco. Se a operação for concluída, o sistema retorna à aba **Buscar** e mostra a lista atualizada.
+
+### 3. Tela de cadastro de gênero — `FrmAddGenero`
+
+![Tela Adicionar Gênero com o campo Nome do gênero e o botão Cadastrar](imagens/cadastro-genero.png)
+
+A janela **Adicionar Gênero** permite incluir uma categoria nova. O usuário digita o nome e clica em **Cadastrar**. O programa verifica se o campo foi preenchido, retira os espaços no início e no fim do texto e salva o nome no MySQL. Após o cadastro, uma mensagem confirma a operação e o campo é limpo para receber outro nome.
+
+Ao clicar no **X**, o usuário retorna à janela principal. Os gêneros são carregados novamente, e o novo registro fica disponível na lista de seleção.
 
 ## Organização do código
 
-| Arquivo | Responsabilidade |
-|---|---|
-| `Program.cs` | É o ponto de entrada do aplicativo. Inicia o Windows Forms e abre `FrmLogin`. |
-| `FrmLogin.cs` | Recebe os dados de login e abre a tela principal após a validação. |
-| `Sistema.cs` | Controla as abas e as operações de cadastro, busca, alteração e exclusão de filmes. |
-| `FrmAddGenero.cs` | Valida e envia ao banco o nome de um novo gênero. |
-| `Filmes.cs` | Define a classe que reúne os dados do filme para o cadastro e a alteração. |
-| `ConectaBanco.cs` | Centraliza as conexões com o MySQL e as chamadas aos procedimentos armazenados. |
-| `Bibliotecacs.cs` | Contém o método que gera o hash SHA-256 usado na consulta de login. |
+**`Program.cs`** inicia a aplicação Windows Forms e abre `FrmLogin`. Os arquivos **`FrmLogin.cs`**, **`Sistema.cs`** e **`FrmAddGenero.cs`** definem como cada janela reage às ações do usuário. Os arquivos **`.Designer.cs`** correspondentes configuram os componentes visuais de cada formulário.
+
+**`Filmes.cs`** define a classe que reúne os dados do filme durante o cadastro e a edição. **`ConectaBanco.cs`** centraliza a comunicação com o MySQL, como abrir a conexão, passar os parâmetros e receber os resultados. **`Bibliotecacs.cs`** contém o método que gera o hash da senha usado na consulta de login.
 
 ## Banco de dados
 
-O banco `bancos_filmes` contém três tabelas.
+O banco `bancos_filmes` tem três tabelas. A tabela **`filmes`** guarda o nome, o identificador do gênero, o diretor e o ano de cada filme. A tabela **`generos`** guarda o identificador e o nome de cada gênero. A tabela **`usuarios`** guarda os nomes de usuário e os hashes consultados no login.
 
-- **`filmes`** guarda o identificador, o nome do filme, o identificador do gênero, o nome do diretor e o ano.
-- **`generos`** guarda os identificadores e os nomes dos gêneros disponíveis. Um mesmo gênero pode ser associado a vários filmes.
-- **`usuarios`** guarda os dados usados na validação do login, incluindo o nome de usuário e o hash da senha.
+O campo `id_genero` associa cada filme a um gênero. Essa relação permite que vários filmes tenham o mesmo gênero. Quando o catálogo é carregado, o procedimento `sp_listaFilmes` consulta as tabelas de filmes e gêneros em conjunto para exibir o nome do gênero na tela.
 
-O campo `id_genero` liga cada filme ao seu gênero. Na listagem, o procedimento `sp_listaFilmes` combina os dados das tabelas `filmes` e `generos` para mostrar o nome do gênero na tela.
-
-A comunicação com o banco acontece por meio de **procedimentos armazenados**, que são rotinas SQL definidas no MySQL. Por exemplo, ao cadastrar um filme, a tela valida os campos, reúne os dados em um objeto `Filmes` e chama `ConectaBanco`. Essa classe envia os valores como parâmetros para `sp_insereFilme`. Depois que o banco conclui a operação, o aplicativo atualiza a tabela da tela principal.
+As operações são executadas por procedimentos armazenados, que são rotinas SQL definidas no MySQL. Ao cadastrar um filme, por exemplo, o formulário valida os campos, reúne os dados em um objeto da classe `Filmes` e chama `ConectaBanco`. Essa classe envia os valores ao procedimento `sp_insereFilme`. Depois que o banco salva o registro, o programa atualiza a lista de filmes.
 
 ## Como executar o projeto
 
-1. No Windows, use o Visual Studio com o suporte a desenvolvimento para desktop em .NET e o pacote de desenvolvimento do **.NET Framework 4.7.2**.
-2. Importe o arquivo `bancos_filmes (2).sql` em uma instância do MySQL 8. O script cria o banco `bancos_filmes`, com as tabelas e os procedimentos usados pelo aplicativo.
-3. Abra `SistemaCadastro.sln` e restaure os pacotes NuGet da solução.
-4. Em `ConectaBanco.cs`, ajuste a configuração da conexão para os dados da sua instância do MySQL.
-5. Execute o projeto pelo Visual Studio e entre com um usuário registrado na tabela `usuarios`.
+1. No Windows, use o Visual Studio com suporte a desenvolvimento para desktop em .NET e o pacote de desenvolvimento do **.NET Framework 4.7.2**.
+2. Importe o arquivo `bancos_filmes (2).sql` em uma instância do MySQL 8. Ele contém a estrutura do banco `bancos_filmes` e os procedimentos usados pelo programa.
+3. Abra o arquivo `SistemaCadastro.sln` no Visual Studio e restaure os pacotes NuGet.
+4. Ajuste os dados da conexão com o MySQL no arquivo `ConectaBanco.cs`.
+5. Execute o projeto e entre com um usuário cadastrado no banco.
