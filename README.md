@@ -73,7 +73,7 @@ As operações são executadas por procedimentos armazenados, que são rotinas S
 ## Como executar o projeto
 
 1. No Windows, use o Visual Studio com suporte a desenvolvimento para desktop em .NET e o pacote de desenvolvimento do **.NET Framework 4.7.2**.
-2. Importe o arquivo `bancos_filmes (2).sql` em uma instância do MySQL 8. Ele contém a estrutura do banco `bancos_filmes` e os procedimentos usados pelo programa.
+2. Importe o arquivo `bancos_filmes.sql` em uma instância do MySQL 8. Ele contém a estrutura do banco `bancos_filmes` e os procedimentos usados pelo programa.
 3. Abra o arquivo `SistemaCadastro.sln` no Visual Studio e restaure os pacotes NuGet.
 4. Ajuste os dados da conexão com o MySQL no arquivo `ConectaBanco.cs`.
 5. Execute o projeto e entre com um usuário cadastrado no banco.
