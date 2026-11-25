@@ -33,7 +33,7 @@ CREATE TABLE `filmes` (
   PRIMARY KEY (`id_filme`),
   KEY `id_genero` (`id_genero`),
   CONSTRAINT `filmes_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `filmes` (
 
 LOCK TABLES `filmes` WRITE;
 /*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
-INSERT INTO `filmes` VALUES (1,'A cabana',10,'Stuart Hazeldine',6),(2,'Djanco Livre',1,'Quentin Tarantino',8),(3,'Máquina Mortifera',1,'Richard Donner',7),(9,'O Senhor dos Anéis',2,'Peter Jackson',9);
+INSERT INTO `filmes` VALUES (1,'A cabana',10,'Stuart Hazeldine',6),(2,'Djanco Livre',1,'Quentin Tarantino',8),(3,'Máquina Mortifera',1,'Richard Donner',7),(9,'O Senhor dos Anéis',2,'Peter Jackson',9),(16,'wt43534',4,'325235',3);
 /*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `generos` (
   `id_genero` int NOT NULL AUTO_INCREMENT,
   `nome_genero` varchar(100) NOT NULL,
   PRIMARY KEY (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `generos` (
 
 LOCK TABLES `generos` WRITE;
 /*!40000 ALTER TABLE `generos` DISABLE KEYS */;
-INSERT INTO `generos` VALUES (1,'Ação'),(2,'Aventura'),(3,'Comédia'),(4,'Drama'),(5,'Terror'),(6,'Ficção Científica'),(7,'Romance'),(8,'Animação'),(9,'Suspense'),(10,'Fantasia'),(11,'Esportivo'),(12,'Musical'),(13,'Comedia'),(14,'Sitcom'),(15,'Horror');
+INSERT INTO `generos` VALUES (1,'Ação'),(2,'Aventura'),(3,'Comédia'),(4,'Drama'),(5,'Terror'),(6,'Ficção Científica'),(7,'Romance'),(8,'Animação'),(9,'Suspense'),(10,'Fantasia'),(11,'Esportivo'),(12,'Musical'),(13,'Comedia'),(14,'Sitcom'),(15,'Horror'),(16,'Misterio');
 /*!40000 ALTER TABLE `generos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,4 +279,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-18 23:27:32
+-- Dump completed on 2026-11-24 20:59:45
