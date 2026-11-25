@@ -11,7 +11,7 @@ namespace SistemaCadastro
 {
     internal class ConectaBanco
     {
-        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;password=Batista@2006;database=bancos_filmes");
+        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;port=3306;password=Batista@2006;database=bancos_filmes");
 
         string mensagem;
 
