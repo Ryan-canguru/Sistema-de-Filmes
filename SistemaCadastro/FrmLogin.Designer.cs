@@ -2,15 +2,10 @@
 {
     partial class FrmLogin
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -33,26 +28,24 @@
             this.txtsenha = new System.Windows.Forms.TextBox();
             this.BtnConfirmaCadastro = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2.SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 60);
+            this.label1.Location = new System.Drawing.Point(300, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 55);
+            this.label1.Size = new System.Drawing.Size(162, 55);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Login";
+            this.label1.Text = "Entrar";
             // 
             // txtuser
             // 
             this.txtuser.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtuser.Location = new System.Drawing.Point(259, 155);
+            this.txtuser.Location = new System.Drawing.Point(211, 156);
             this.txtuser.Margin = new System.Windows.Forms.Padding(4);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(387, 34);
@@ -62,7 +55,7 @@
             // txtsenha
             // 
             this.txtsenha.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtsenha.Location = new System.Drawing.Point(259, 226);
+            this.txtsenha.Location = new System.Drawing.Point(211, 227);
             this.txtsenha.Margin = new System.Windows.Forms.Padding(4);
             this.txtsenha.Name = "txtsenha";
             this.txtsenha.Size = new System.Drawing.Size(387, 34);
@@ -71,68 +64,62 @@
             // 
             // BtnConfirmaCadastro
             // 
+            this.BtnConfirmaCadastro.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.BtnConfirmaCadastro.FlatAppearance.BorderSize = 0;
-            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.DimGray;
-            this.BtnConfirmaCadastro.Image = global::SistemaCadastro.Properties.Resources.adicionar;
-            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(353, 318);
+            this.BtnConfirmaCadastro.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.BtnConfirmaCadastro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmaCadastro.ForeColor = System.Drawing.Color.Black;
+            this.BtnConfirmaCadastro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnConfirmaCadastro.Location = new System.Drawing.Point(310, 300);
             this.BtnConfirmaCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.BtnConfirmaCadastro.Name = "BtnConfirmaCadastro";
-            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(175, 60);
+            this.BtnConfirmaCadastro.Size = new System.Drawing.Size(126, 60);
             this.BtnConfirmaCadastro.TabIndex = 18;
             this.BtnConfirmaCadastro.Text = "Entrar";
-            this.BtnConfirmaCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnConfirmaCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnConfirmaCadastro.UseVisualStyleBackColor = true;
+            this.BtnConfirmaCadastro.UseWaitCursor = true;
             this.BtnConfirmaCadastro.Click += new System.EventHandler(this.BtnConfirmaCadastro_Click);
             // 
             // btnFechar
             // 
-            this.btnFechar.Location = new System.Drawing.Point(748, 60);
+            this.btnFechar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Location = new System.Drawing.Point(326, 367);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(40, 37);
+            this.btnFechar.Size = new System.Drawing.Size(88, 44);
             this.btnFechar.TabIndex = 19;
-            this.btnFechar.Text = "X";
-            this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Text = "Sair";
+            this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.UseWaitCursor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
-            // panel2
+            // label2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 53);
-            this.panel2.TabIndex = 20;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(81, 156);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 27);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Usuário:";
             // 
-            // panel3
+            // label3
             // 
-            this.panel3.Location = new System.Drawing.Point(60, 46);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(167, 161);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 53);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(149, 397);
-            this.panel1.TabIndex = 21;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(98, 231);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(90, 27);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Senha:";
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.BtnConfirmaCadastro);
             this.Controls.Add(this.txtsenha);
@@ -142,7 +129,6 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,8 +141,7 @@
         private System.Windows.Forms.TextBox txtsenha;
         private System.Windows.Forms.Button BtnConfirmaCadastro;
         private System.Windows.Forms.Button btnFechar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
