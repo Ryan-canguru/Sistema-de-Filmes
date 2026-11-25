@@ -42,7 +42,7 @@ CREATE TABLE `filmes` (
 
 LOCK TABLES `filmes` WRITE;
 /*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
-INSERT INTO `filmes` VALUES (1,'A cabana',10,'Stuart Hazeldine',6),(2,'Djanco Livre',1,'Quentin Tarantino',8),(3,'Máquina Mortifera',1,'Richard Donner',7),(9,'O Senhor dos Anéis',2,'Peter Jackson',9),(16,'wt43534',4,'325235',3);
+INSERT INTO `filmes` VALUES (1,'A cabana',10,'Stuart Hazeldine',2010),(2,'Djanco Livre',1,'Quentin Tarantino',2008),(3,'Máquina Mortifera',1,'Richard Donner',1990),(9,'O Senhor dos Anéis',2,'Peter Jackson',2001);
 /*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,4 +279,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-11-25 19:32:01
+-- Dump completed on 2026-11-25 19:52:23

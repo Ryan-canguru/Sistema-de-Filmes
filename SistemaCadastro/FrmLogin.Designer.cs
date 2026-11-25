@@ -84,7 +84,7 @@
             // 
             this.btnFechar.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.Location = new System.Drawing.Point(326, 367);
+            this.btnFechar.Location = new System.Drawing.Point(328, 367);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(88, 44);
             this.btnFechar.TabIndex = 19;
