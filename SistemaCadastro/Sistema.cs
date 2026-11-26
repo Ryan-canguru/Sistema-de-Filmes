@@ -28,6 +28,7 @@ namespace SistemaCadastro
             Application.Exit();
         }
 
+        //Cadastro de filmes
         private void btnCadastra_Click(object sender, EventArgs e)
         {
             marcador.Height = btnCadastra.Height;
@@ -35,6 +36,7 @@ namespace SistemaCadastro
             tabControl1.SelectedTab = tabControl1.TabPages[0];
         }
 
+        //Busca de filmes
         private void btnBusca_Click(object sender, EventArgs e)
         {
             marcador.Height = btnBusca.Height;
@@ -42,12 +44,14 @@ namespace SistemaCadastro
             tabControl1.SelectedTab = tabControl1.TabPages[1];
         }
 
+        //Alteração de filmes
         private void Sistema_Load(object sender, EventArgs e)
         {
             listaCBGeneros();
             lista_grindFilmes();
         }
 
+        //Lista de filmes
         void lista_grindFilmes()
         {
             ConectaBanco con = new ConectaBanco();
@@ -67,6 +71,7 @@ namespace SistemaCadastro
             }
         }
 
+        //lista gêneros combobox
         public void listaCBGeneros()
         {
             ConectaBanco con = new ConectaBanco();
@@ -107,6 +112,7 @@ namespace SistemaCadastro
             cbAlteraGenero.SelectedIndex = -1;
         }
 
+        //Busca de filmes
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
             DataTable tabela = dgBandas.DataSource as DataTable;
@@ -126,6 +132,7 @@ namespace SistemaCadastro
                 string.Format("nome_filme LIKE '{0}%'", busca);
         }
 
+        //Remove filme
         private void btnRemoveBanda_Click(object sender, EventArgs e)
         {
             if (dgBandas.CurrentRow == null ||
@@ -172,7 +179,7 @@ namespace SistemaCadastro
                 MessageBox.Show("Exclusão cancelada");
             }
         }
-
+        //Alterar filme
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (dgBandas.CurrentRow == null ||
@@ -221,6 +228,7 @@ namespace SistemaCadastro
             tabControl1.SelectedTab = tabControl1.TabPages[2];
         }
 
+        //Confirma alteração de filme
         private void btnConfirmaAlteracao_Click(object sender, EventArgs e)
         {
             if (idFilmeAlterar == 0)
@@ -298,7 +306,7 @@ namespace SistemaCadastro
                 tabControl1.SelectedTab = tabControl1.TabPages[1];
             }
         }
-
+        //Adiciona gênero
         private void bntAddGenero_Click(object sender, EventArgs e)
         {
             FrmAddGenero fromGenero = new FrmAddGenero();
@@ -306,7 +314,7 @@ namespace SistemaCadastro
             fromGenero.ShowDialog();
             this.Close();
         }
-
+        //Limpa campos
         void limpaCampos()
         {
             txtnome.Clear();
@@ -316,6 +324,7 @@ namespace SistemaCadastro
             txtnome.Focus();
         }
 
+        //Confirma cadastro filme
         private void BtnConfirmaCadastro_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtnome.Text))
