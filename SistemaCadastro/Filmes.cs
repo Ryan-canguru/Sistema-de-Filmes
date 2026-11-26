@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace SistemaCadastro
 {
+    
     internal class Filmes
     {
+        // atributos cadastro filmes
         string nome;
         string genero;
         string diretor;
         string ano;
 
+        // propriedades cadastro filmes
         public string Nome { get => nome; set => nome = value; }
         public string Genero { get => genero; set => genero = value; }
         public string Diretor { get => diretor; set => diretor = value; }

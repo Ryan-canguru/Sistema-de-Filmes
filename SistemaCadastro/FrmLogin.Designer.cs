@@ -2,10 +2,9 @@
 {
     partial class FrmLogin
     {
-        
         private System.ComponentModel.IContainer components = null;
 
-        
+        // liberar recursos utilizados
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -83,14 +82,14 @@
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.btnFechar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.Location = new System.Drawing.Point(328, 367);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(88, 44);
             this.btnFechar.TabIndex = 19;
             this.btnFechar.Text = "Sair";
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.UseWaitCursor = true;
+            this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // label2

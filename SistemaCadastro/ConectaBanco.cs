@@ -11,7 +11,8 @@ namespace SistemaCadastro
 {
     internal class ConectaBanco
     {
-        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;port=3306;password=Batista@2006;database=bancos_filmes");
+        // Conexão com BD
+        MySqlConnection conexao = new MySqlConnection("server=localhost;user id=root;port=3306;password=Batista@2006;database=bancos_filmes"); 
 
         string mensagem;
 
@@ -20,6 +21,7 @@ namespace SistemaCadastro
             get => mensagem;
         }
 
+        // método inserir filme
         public bool insereFilme(Filmes novoFilme)
         {
             try
@@ -51,8 +53,9 @@ namespace SistemaCadastro
             {
                 conexao.Close();
             }
-        }
+        } 
 
+        // método listagem gêneros
         public DataTable listaGeneros()
         {
             MySqlCommand cmd =
@@ -81,8 +84,9 @@ namespace SistemaCadastro
             {
                 conexao.Close();
             }
-        }
+        } 
 
+        // método listagem filmes
         public DataTable listaFilmes()
         {
             MySqlCommand cmd =
@@ -113,6 +117,7 @@ namespace SistemaCadastro
             }
         }
 
+        // método Deleta filme
         public bool deletaFilme(int idRemoveFilme)
         {
             MySqlCommand cmd =
@@ -140,6 +145,8 @@ namespace SistemaCadastro
                 conexao.Close();
             }
         }
+
+        // método altera filme
         public bool alteraFilme(Filmes filmeAlterado, int idFilme)
         {
             MySqlCommand cmd =
@@ -172,7 +179,7 @@ namespace SistemaCadastro
             }
         }
 
-
+        // método insere gênero
         public bool insereGenero(string novoGenero)
         {
             MySqlCommand cmd =
@@ -198,7 +205,7 @@ namespace SistemaCadastro
             }
         }
 
-
+        // verificador usuário e senha
         public bool verifica(string user, string pass)
         {
             string senhaHash = Bibliotecacs.makeHash(pass);

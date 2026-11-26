@@ -9,17 +9,17 @@ namespace SistemaCadastro
 {
     internal class Bibliotecacs
     {
-
+        // gerar hash senha
         public static string makeHash(string rawData)
         {
-            // Create a SHA256
+            // Cria instância SHA256
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                // ComputeHash - returns byte array
+                //recebe gera hash
                 byte[] bytes = sha256Hash.ComputeHash(
                     Encoding.UTF8.GetBytes(rawData));
 
-                // Convert byte array to a string
+                //converte array em string
                 StringBuilder builder = new StringBuilder();
 
                 for (int i = 0; i < bytes.Length; i++)
